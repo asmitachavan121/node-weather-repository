@@ -2,6 +2,7 @@
 
 
 console.log('Client side JS file is created from js folder!')
+console.log('fetch api will get called')
 
 // fetch('http://puzzle.mead.io/puzzle')
 // fetch('http://localhost:2000/weather?address=!')
