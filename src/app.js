@@ -12,6 +12,8 @@ console.log(path.join(__dirname, '../public'))
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname,'/templates/views')
 const partialsPath = path.join(__dirname,'/templates/partials')
+const port = process.env.port || 3000
+
 
 app.set('view engine', 'hbs')
 app.set('views', viewsPath)
@@ -97,7 +99,7 @@ app.get('*', (request, response) => {
         message:'Page not found'
     })
 })
-app.listen(2000, (err) => {
+app.listen(port, (err) => {
     if(err)
         throw err
     console.log('Server up and running')

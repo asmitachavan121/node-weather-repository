@@ -26,28 +26,30 @@ var messageOne = document.querySelector('#msg-1')
 var messageTwo = document.querySelector('#msg-2')
 
 messageOne.textContent = 'From javascript '
-messageTwo.textContent = ' '
+messageTwo.textContent = ''
 weatherForm.addEventListener('submit', (e) => {                 //e-event object
     
     e.preventDefault()
 
     messageOne.textContent = 'Loading...'
-    messageTwo.textContent = ''
+    messageTwo.textContent = 'Result will be shown soon...'
     const location = search.value
 
-    const url = 'http://localhost:2000/weather?address=' + location
+    const url = '/weather?address=' + location
 
-    fetch(url)
+    // fetch(url)
+    fetch(url, {mode: 'no-cors'})
     .then((response) => response.json() )//response.json())
     .then((data) => {
         if(data.error) {
             console.log(data.error)
             messageOne.textContent = data.error
+            messageTwo.textContent = ''
         }
         else {
             console.log(data)
-            messageOne.textContent = data.location
-            messageTwo.textContent  = data.forecast
+            messageOne.textContent = data.Location
+            messageTwo.textContent  = data.Forecast
         }
     })
 
